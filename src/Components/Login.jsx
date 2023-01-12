@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Login() {
     return (
-        <div className="mt-11">
-            <div className="bg-gradient-to-br from-violet-200 to-gray-100 w-2/3 mx-auto flex flex-col py-20 px-11 rounded-3xl max-w-lg">
+        <div className="my-11">
+            <div className="bg-gradient-to-br from-violet-200 to-gray-100 w-2/3 mx-auto flex flex-col pt-20 pb-10 px-11 rounded-3xl max-w-lg">
                 <h2 className="font-bold text-2xl mb-2">Hey, hello 👋</h2>
                 <p className="text-gray-600 text-sm mb-5">Enter the information you entered while registering.</p>
                 <form className="flex flex-col">
@@ -19,8 +20,8 @@ function Login() {
                     <p className="mx-3 text-gray-600">or</p>
                     <div className="border-b border-gray-400 w-full h-1"></div>
                 </div>
-                <button className="bg-gradient-to-r from-purple-400 to-indigo-600 text-white my-3 py-2 rounded-lg">Register</button>
-                <button className="bg-gradient-to-r from-purple-400 to-indigo-600 text-white my-3 py-2 rounded-lg">Demo</button>
+                <button className="bg-gradient-to-r from-purple-400 to-indigo-600 text-white my-3 py-2 rounded-lg"><Link to='/signup'>Register</Link></button>
+                <button className="bg-gradient-to-r from-purple-400 to-indigo-600 text-white my-3 py-2 rounded-lg">Demo Login</button>
             </div>
         </div>
     );
