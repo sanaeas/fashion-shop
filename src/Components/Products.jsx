@@ -20,6 +20,8 @@ function Products() {
             <SingleProduct key={id} title={title} price={price} image={image} rating={rating.rate} />
           ))}
         </div>
+
+        <button className='bg-indigo-400 text-white font-bold py-2 px-4 rounded-lg hover:bg-indigo-500 active:scale-95'>Explore More</button>
       </div>
     </section>
   )

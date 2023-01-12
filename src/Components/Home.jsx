@@ -2,6 +2,7 @@ import React from "react";
 import { StarIcon } from "@heroicons/react/24/solid";
 import Header from "./Header";
 import Products from "./Products";
+import Footer from "./Footer";
 
 function Home() {
     return (
@@ -42,7 +43,7 @@ function Home() {
                 <Products />
             </main>
 
-            
+            <Footer />
         </>
     );
 }
