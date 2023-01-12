@@ -27,7 +27,7 @@ function Nav() {
 
                 <div className="flex items-center gap-x-3">
                     <Link to='/' className="flex items-center border border-black rounded-full px-3 py-1"><ShoppingCartIcon className="h-7 mr-2" />Cart</Link>
-                    <Link to='/'><UserIcon className="h-7" /></Link>
+                    <Link to='/login'><UserIcon className="h-7" /></Link>
                 </div>
             </div>
         </nav>
