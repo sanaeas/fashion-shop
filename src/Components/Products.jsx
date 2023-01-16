@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 import SingleProduct from './SingleProduct';
 
 function Products() {
@@ -21,7 +22,7 @@ function Products() {
           ))}
         </div>
 
-        <button className='bg-indigo-400 text-white font-bold py-2 px-4 rounded-lg hover:bg-indigo-500 active:scale-95'>Explore More</button>
+        <button className='bg-indigo-400 text-white font-bold py-2 px-4 rounded-lg hover:bg-indigo-500 active:scale-95'><Link to='/products'>Explore More</Link></button>
       </div>
     </section>
   )

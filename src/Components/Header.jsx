@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import HeroImg from "../images/hero.png";
 
 function Header() {
@@ -14,8 +15,10 @@ function Header() {
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Recusandae ratione veniam placeat aperiam atque. Suscipit!
                 </p>
-                <button className="mt-5 px-4 py-3 bg-indigo-500 text-white text-xl font-bold rounded-lg tracking-wider">
-                    Shop Now!
+                <button className="mt-5 px-4 py-3 bg-indigo-500 text-white text-xl rounded-lg tracking-wider">
+                    <Link to='/products'>
+                        Shop Now!
+                    </Link>
                 </button>
             </div>
 
