@@ -1,15 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom';
+import { useStateValue } from '../StateProvider';
 import SingleProduct from './SingleProduct';
 
 function Products() {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then((response) => response.json())
-      .then((data) => setProducts(data));
-  }, []);
+  const [{ products }, dispatch] = useStateValue();
 
   return (
     <section className='py-20'>

@@ -1,22 +1,12 @@
 import React, { useEffect, useState } from 'react'
+import { useStateValue } from '../StateProvider';
 import Footer from './Footer';
 import SingleProduct from './SingleProduct';
 
 function AllProducts() {
-    const [products, setProducts] = useState([]);
+    const [{ products }, dispatch] = useStateValue();
     const [category, setCategory] = useState('');
 
-    useEffect(() => {
-      fetch("https://fakestoreapi.com/products")
-        .then((response) => response.json())
-        .then((data) => setProducts(data));
-    }, []);
-
-    useEffect(() => {
-      fetch(`https://fakestoreapi.com/products/category/${category}`)
-        .then((response) => response.json())
-        .then((data) => setProducts(data));
-    }, [category]);
 
   return (
     <div>
