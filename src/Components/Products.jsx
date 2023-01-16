@@ -18,7 +18,7 @@ function Products() {
 
         <div className='w-full grid grid-cols-3 py-4 px-5 gap-x-5 gap-y-11 my-20'>
           {products?.slice(0, 6).map(({id, title, price, image, rating}) => (
-            <SingleProduct key={id} title={title} price={price} image={image} rating={rating.rate} />
+            <SingleProduct key={id} id={id} title={title} price={price} image={image} rating={rating.rate} />
           ))}
         </div>
 

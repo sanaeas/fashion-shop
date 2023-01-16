@@ -1,9 +1,18 @@
 import React from 'react'
 import { PlusIcon, MinusIcon } from "@heroicons/react/24/outline";
+import { useStateValue } from '../StateProvider';
 
-function CartProduct({ image, title, price }) {
-    console.log(image)
-  return (
+function CartProduct({ id, image, title, price }) {
+    const [{ cart }, dispatch] = useStateValue();
+
+    const removeFromCart = () => {
+        dispatch({
+            type: 'REMOVE_FROM_CART',
+            id: id,
+        })
+    }
+
+    return (
     <div className='flex items-center py-3 border-b'>
         <div className='flex items-center gap-x-2 w-[40%]'>
             <img className='w-14 h-14 object-contain' src={image} alt={title} />
@@ -20,7 +29,7 @@ function CartProduct({ image, title, price }) {
         </div>
 
         <div className='text-center w-[20%] text-indigo-600'>${price}</div>
-        <div className='text-center w-[20%] font-light text-sm text-red-500 cursor-pointer'>remove</div>
+        <div className='text-center w-[20%] font-light text-sm text-red-500 cursor-pointer' onClick={removeFromCart}>remove</div>
     </div>
   )
 }
