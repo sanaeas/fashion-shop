@@ -1,14 +1,21 @@
-import React from 'react'
-import { PlusIcon, MinusIcon } from "@heroicons/react/24/outline";
+import React, { useState } from 'react'
 import { useStateValue } from '../StateProvider';
 
-function CartProduct({ id, image, title, price }) {
+function CartProduct({ id, image, quantity, title, price }) {
     const [{ cart }, dispatch] = useStateValue();
 
     const removeFromCart = () => {
         dispatch({
             type: 'REMOVE_FROM_CART',
             id: id,
+        })
+    }
+
+    const updateQuantity = (value) => {
+        dispatch({
+            type: 'UPDATE_QUANTITY',
+            id: id,
+            quantity: +value,
         })
     }
 
@@ -22,13 +29,17 @@ function CartProduct({ id, image, title, price }) {
             </div>
         </div>
 
-        <div className='flex gap-x-2 w-[20%] items-center justify-center'>
-            <button><MinusIcon className="h-5 text-indigo-500" /></button>
-            <p className='text-lg'>1</p>
-            <button><PlusIcon className="h-5 text-indigo-500" /></button>
+        <div className='w-[20%] flex items-center justify-center'>
+            <input
+                min={1}
+                value={quantity}
+                onChange={(e) => updateQuantity(e.target.value)}
+                type="number"
+                className="w-12 pl-3 text-lg outline-none"
+            />
         </div>
 
-        <div className='text-center w-[20%] text-indigo-600'>${price}</div>
+        <div className='text-center w-[20%] text-indigo-600'>${(price * quantity).toFixed(2)}</div>
         <div className='text-center w-[20%] font-light text-sm text-red-500 cursor-pointer' onClick={removeFromCart}>remove</div>
     </div>
   )

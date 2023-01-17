@@ -5,15 +5,6 @@ import CartProduct from './CartProduct';
 function Cart() {
     const [{ cart }, dispatch] = useStateValue();
 
-    const [item, setItem] = useState();
-
-    useEffect(() => {
-      fetch("https://fakestoreapi.com/products/1")
-        .then((response) => response.json())
-        .then((json) => setItem(json));
-    }, []);
-
-    console.log(item);
   return (
     <div className='bg-gray-100 min-h-screen pt-9 px-3'>
         <div className='max-w-[1200px] mx-auto'>
@@ -31,7 +22,7 @@ function Cart() {
                 </div>
                 <div>
                 {cart?.map((item, i) => (
-                    <CartProduct key={i} id={item.id} image={item.image} title={item.title} price={item.price} />
+                    <CartProduct key={i} id={item.id} image={item.image} quantity={item.quantity} title={item.title} price={item.price} />
                 ))}
                 </div>
             </div>

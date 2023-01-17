@@ -39,6 +39,16 @@ export const reducer = (state, action) => {
                 cart: newCart
             };
         
+        case "UPDATE_QUANTITY":
+            const proIndex = state.cart.findIndex(element => element.id === action.id);
+            let nCart = [...state.cart];
+            nCart[proIndex].quantity = action.quantity 
+
+            return {
+                ...state,
+                cart: nCart
+            };
+        
         case "EMPTY_CART":
             return {
                 ...state,
