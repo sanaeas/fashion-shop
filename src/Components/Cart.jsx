@@ -4,6 +4,14 @@ import CartProduct from './CartProduct';
 
 function Cart() {
     const [{ cart }, dispatch] = useStateValue();
+    const [total, setTotal] = useState(0);
+
+    useEffect(() => {
+        let total = cart.reduce(
+            (accumulator, currentValue) => accumulator + (currentValue.price * currentValue.quantity), 0
+          );
+        setTotal(total)
+    }, [cart])
 
   return (
     <div className='bg-gray-100 min-h-screen pt-9 px-3'>
@@ -11,7 +19,7 @@ function Cart() {
             <div className='bg-white flex justify-between items-center py-3 px-10 rounded-2xl shadow-md mb-9'>
                 <h2 className='text-xl tracking-wider font-light'>Your Shopping Basket</h2>
                 <p>{cart.length} Items</p>
-                <button className='bg-indigo-600 text-white px-4 py-2 rounded-lg'>Check out ($760.00)</button>
+                <button className='bg-indigo-600 text-white px-4 py-2 rounded-lg'>Check out (${total})</button>
             </div>
 
             <div className='bg-white py-3 px-10 rounded-2xl shadow-md'>
