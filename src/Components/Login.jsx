@@ -21,7 +21,18 @@ function Login() {
           alert(err.message)
         })
       };
-    console.log(auth);
+
+    const demoLogin = (e) => {
+        e.preventDefault();
+
+        signInWithEmailAndPassword(auth, 'john@gmail.com', 'test1234')
+        .then(auth => {
+          navigate('/');
+        })
+        .catch(err => {
+          alert(err.message)
+        })
+    }
 
     return (
         <div className="my-11">
@@ -42,7 +53,7 @@ function Login() {
                     <div className="border-b border-gray-400 w-full h-1"></div>
                 </div>
                 <button className="bg-gradient-to-r from-purple-400 to-indigo-600 text-white my-3 py-2 rounded-lg" onClick={() => navigate('/signup')}>Register</button>
-                <button className="bg-gradient-to-r from-purple-400 to-indigo-600 text-white my-3 py-2 rounded-lg">Demo Login</button>
+                <button className="bg-gradient-to-r from-purple-400 to-indigo-600 text-white my-3 py-2 rounded-lg" onClick={demoLogin}>Demo Login</button>
             </div>
         </div>
     );
