@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Login from "./Components/Login";
 import Signup from "./Components/Signup";
 import { useStateValue } from "./StateProvider";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase";
 import Cart from "./Components/Cart";
@@ -21,7 +21,6 @@ function App() {
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
-      console.log("The user is:", user);
 
       if (user) {
         dispatch({
@@ -50,7 +49,7 @@ function App() {
 
   return (
     <Router>
-      <div className="App">
+      <div className="App overflow-x-hidden">
         <Nav />
         <Routes>
           <Route path='/' element={<Home />} />
