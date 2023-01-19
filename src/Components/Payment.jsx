@@ -6,9 +6,11 @@ import { getCartTotal } from "../reducer";
 import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 import PaymentProduct from "./PaymentProduct";
 import axios from "../axios";
+import { db } from "../firebase";
+import { doc, setDoc } from "firebase/firestore";
 
 function Payment() {
-    const [{ cart }, dispatch] = useStateValue();
+    const [{ cart, user }, dispatch] = useStateValue();
     const navigate = useNavigate();
 
     const stripe = useStripe();
@@ -48,6 +50,13 @@ function Payment() {
             })
             .then(async ({ paymentIntent }) => {
                 // paymentIntent == payment confirmation from Stripe
+
+                const userDoc = doc(db, 'users', user?.uid);
+                await setDoc(doc(userDoc, 'orders', paymentIntent.id), {
+                    cart: cart,
+                    amount: paymentIntent.amount,
+                    created: paymentIntent.created
+                })
 
                 setSucceeded(true);
                 setError(null);
