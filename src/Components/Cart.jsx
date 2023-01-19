@@ -18,10 +18,12 @@ function Cart() {
   return (
     <div className='bg-gray-100 min-h-screen pt-9 px-3'>
         <div className='max-w-[1200px] mx-auto'>
-            <div className='bg-white flex justify-between items-center py-3 px-10 rounded-2xl shadow-md'>
-                <h2 className='text-xl tracking-wider font-light'>Your Shopping Basket</h2>
+            <div className='bg-white flex flex-wrap justify-between items-center py-3 px-10 rounded-2xl shadow-md gap-y-3'>
+                <h2 className='text-xl w-full text-center sm:w-auto tracking-wider font-light'>Your Shopping Basket</h2>
                 <p>{cart.length} Items</p>
+                {!!total && 
                 <button className='bg-indigo-600 text-white px-4 py-2 rounded-lg' disabled={!user} onClick={e => navigate('/payment')}>Check out (${total})</button>
+                }
             </div>
             <p className='mb-9 mt-2 px-3 text-sm font-light text-gray-500 text-right'>To continue with the payment, please make sure you are logged in.</p>
 

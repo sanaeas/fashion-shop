@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useStateValue } from '../StateProvider';
 
 function CartProduct({ id, image, quantity, title, price }) {
-    const [{ cart }, dispatch] = useStateValue();
+    const [{}, dispatch] = useStateValue();
 
     const removeFromCart = () => {
         dispatch({
@@ -21,8 +21,8 @@ function CartProduct({ id, image, quantity, title, price }) {
 
     return (
     <div className='flex items-center py-3 border-b'>
-        <div className='flex items-center gap-x-2 w-[40%]'>
-            <img className='w-14 h-14 object-contain' src={image} alt={title} />
+        <div className='flex flex-col sm:flex-row items-center gap-3 w-[40%]'>
+            <img className='h-20 w-20 sm:h-16 sm:w-16 object-contain' src={image} alt={title} />
             <div>
                 <h4 className='text-sm font-bold mb-2'>{title}</h4>
                 <p className='text-sm text-gray-500'>${price}</p>
