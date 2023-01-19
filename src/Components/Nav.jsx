@@ -33,10 +33,10 @@ function Nav() {
                         <Link to="/products">Products</Link>
                     </li>
                     <li>
-                        <Link to="/">Story</Link>
+                        <Link to="/orders">Orders</Link>
                     </li>
                     <li>
-                        <Link to="/">Contact Us</Link>
+                        <Link to="/" className="cursor-not-allowed">Contact Us</Link>
                     </li>
                 </ul>
 
