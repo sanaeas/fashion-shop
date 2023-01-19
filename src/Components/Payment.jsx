@@ -106,6 +106,7 @@ function Payment() {
                     </div>
                 </div>
 
+                {cart.length > 0 && 
                 <div>
                     <h3 className="text-xl font-bold tracking-wide my-4 border-b pb-2">Payment Details</h3>
                     <div>
@@ -128,10 +129,17 @@ function Payment() {
                                 </button>
                             </div>
 
+                            <p className="text-sm font-light mt-4 ml-3">To make a fake payment, enter these details: <br/>
+                                Card number: <span className="text-indigo-800 font-normal">4242 4242 4242 4242</span> <br/>
+                                MM / YY : <span className="text-indigo-800 font-normal">04 / 24</span> <br/>
+                                CVC: <span className="text-indigo-800 font-normal">242</span> <br/>
+                                ZIP: <span className="text-indigo-800 font-normal">42424</span>
+                            </p>
+
                             {error && <div>{error}</div>}
                         </form>
                     </div>
-                </div>
+                </div>}
             </div>
         </div>
     );
