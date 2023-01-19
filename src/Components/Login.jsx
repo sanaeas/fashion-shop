@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase";
 import {
     signInWithEmailAndPassword
@@ -44,7 +44,7 @@ function Login() {
                     <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" name="email" id="email" className="outline-none bg-transparent border border-indigo-500 rounded-md p-1 focus:shadow-md mb-4" />
                     <label htmlFor="password" className="mb-1">Password</label>
                     <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" name="password" id="password" className="outline-none bg-transparent border border-indigo-500 rounded-md p-1 focus:shadow-md mb-4" />
-                    <p className="text-right text-sm text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-600 cursor-pointer">Forgot Password?</p>
+                    <p className="text-right text-sm text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-600 cursor-not-allowed">Forgot Password?</p>
                     <button type="submit" onClick={signIn} className="bg-gradient-to-r from-purple-400 to-indigo-600 text-white my-3 py-2 rounded-lg">Sign In</button>
                 </form>
                 <div className="flex items-center justify-center">
