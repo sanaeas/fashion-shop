@@ -15,7 +15,7 @@ function Nav() {
                 console.log('user signed out')
             })
             .catch(err => {
-                console.log(err.message)
+                alert(err.message)
             })
     }
 
@@ -23,9 +23,9 @@ function Nav() {
         <nav className="py-2 px-3 shadow-md md:px-5">
             <div className="flex justify-between items-center w-full mx-auto max-w-[1200px]">
                 <Link to="/">
-                    <img src={Logo} alt="Fashion Logo" className="h-16" />
+                    <img src={Logo} alt="Fashion Logo" className="h-16 hidden sm:inline-block" />
                 </Link>
-                <ul className="flex gap-x-10">
+                <ul className="flex gap-x-3 sm:gap-x-10">
                     <li>
                         <Link to="/">Home</Link>
                     </li>
@@ -36,12 +36,12 @@ function Nav() {
                         <Link to="/orders">Orders</Link>
                     </li>
                     <li>
-                        <Link to="/" className="cursor-not-allowed">Contact Us</Link>
+                        <Link to="/" className="hidden md:inline-block cursor-not-allowed">Contact Us</Link>
                     </li>
                 </ul>
 
                 <div className="flex items-center gap-x-3">
-                    <Link to='/cart' className="flex items-center border border-black rounded-full px-3 py-1"><ShoppingCartIcon className="h-7 mr-2" />Cart</Link>
+                    <Link to='/cart' className="flex items-center border border-black rounded-full px-3 py-1"><ShoppingCartIcon className="h-7" /><span className="hidden sm:inline-block ml-2">Cart</span></Link>
                     {user ? (
                         <div className="px-3">
                             <p className="font-bold">Hello,</p>
