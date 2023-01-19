@@ -5,7 +5,7 @@ import Logo from "../images/fash.png";
 function Footer() {
   return (
     <footer className='bg-gray-200 py-24 flex flex-col items-center'>
-        <div className='w-full ml-20 max-w-[1200px] mx-auto grid grid-cols-4 px-7'>
+        <div className='w-full pl-10 sm:pl-20 max-w-[1200px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-y-5 px-7'>
             <div>
                 <h4 className='font-bold mb-3'>Quick links</h4>
                 <p className='text-sm mb-2 text-gray-600'>Category</p>
