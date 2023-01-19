@@ -25,10 +25,10 @@ function Orders() {
   }, [user]);
 
   return (
-    <div className='px-5'>
+    <div className='px-5 my-8'>
       <h1 className='my-8 text-center text-3xl font-bold tracking-wide'>Your <span className='text-indigo-500'>Orders</span></h1>
 
-      <div className='bg-gray-300 max-w-[1200px] mx-auto py-3 px-5 rounded-xl shadow-lg gap-y-5'>
+      <div>
         {
           orders?.map(order => (
             <Order order={order} />
